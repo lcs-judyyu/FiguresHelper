@@ -9,6 +9,17 @@ import SwiftUI
 
 struct CircleView: View {
     
+    //MARK: Stored Properties
+    //"radius" is the name
+    //"Double" is the data type
+    //providing default value of 15.00
+    var radius: Double = 15.00
+    
+    //MARK: Computed Properties
+    var area: Double {
+        return Double.pi + radius * radius
+    }
+    
     // User interface
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -47,7 +58,7 @@ struct CircleView: View {
             Text("Area:")
                 .bold()
             
-            Text("706.9 square units")
+            Text("\(area)")
                 .font(.title2)
             
             
