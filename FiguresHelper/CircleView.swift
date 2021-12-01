@@ -13,7 +13,11 @@ struct CircleView: View {
     //"radius" is the name
     //"Double" is the data type
     //providing default value of 15.00
-    var radius: Double = 15.00
+    //Input- from the user, we want to update the interface bases on the value selected by the user
+    //
+    //@State: SwiftUI should watch for changes
+    //
+    @State var radius: Double = 15.00
     
     //MARK: Computed Properties
     var area: Double {
@@ -39,7 +43,8 @@ struct CircleView: View {
                     Spacer()
                 }
                 
-                Slider(value: .constant(15.0),
+                // syntax of $- use this property (radius) and bind it to this control
+                Slider(value: $radius,
                        in: 0.0...100.0,
                        label: {
                     Text("Radius")
