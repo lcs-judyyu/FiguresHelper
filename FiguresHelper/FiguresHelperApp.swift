@@ -11,7 +11,7 @@ import SwiftUI
 struct FiguresHelperApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CircleView()
         }
     }
 }
