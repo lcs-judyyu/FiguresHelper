@@ -17,6 +17,13 @@ struct ConeView: View {
     @State var height: Double = 10.0
     
     //MARK: Computed Properties
+//    var realSlantHeight: Double {
+//        return (radius * radius + height * height).squareRoot()
+//    }
+//    if slantHeight <= height {
+//        action = Text("This cone does not exist.")
+//    }
+    
     var lateralSurface: Double {
         return Double.pi * radius * slantHeight
     }
@@ -68,6 +75,10 @@ struct ConeView: View {
 
                 }
                 
+//                VStack {
+//                    Text("Slant Height:")
+//                }
+                
                 Group {
                     
                     // Show the selected radius value
@@ -95,6 +106,9 @@ struct ConeView: View {
 
                 }
                 
+//                Text("Height:")
+//                    .bold()
+                
                 Group {
                     
                     // Show the selected radius value
@@ -119,6 +133,7 @@ struct ConeView: View {
                            maximumValueLabel: {
                         Text("50.0")
                     })
+                    Divider()
 
                 }
                 
@@ -129,6 +144,8 @@ struct ConeView: View {
                 
                 Text("\(totalSurfaceArea) square units")
                     .font(.title2)
+                
+                Divider()
                 
                 Text("Volume:")
                     .bold()

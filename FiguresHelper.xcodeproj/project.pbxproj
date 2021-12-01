@@ -12,6 +12,7 @@
 		5A8881E12757C40700F7A5EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8881E02757C40700F7A5EF /* Assets.xcassets */; };
 		5A8881E42757C40700F7A5EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8881E32757C40700F7A5EF /* Preview Assets.xcassets */; };
 		5AD6C1BA2757CE6100BB5E7F /* ConeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD6C1B92757CE6100BB5E7F /* ConeView.swift */; };
+		5AD6C1BC2758282F00BB5E7F /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD6C1BB2758282F00BB5E7F /* LandingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		5A8881E02757C40700F7A5EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A8881E32757C40700F7A5EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5AD6C1B92757CE6100BB5E7F /* ConeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeView.swift; sourceTree = "<group>"; };
+		5AD6C1BB2758282F00BB5E7F /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				5A8881DC2757C40000F7A5EF /* FiguresHelperApp.swift */,
 				5A8881DE2757C40000F7A5EF /* CircleView.swift */,
 				5AD6C1B92757CE6100BB5E7F /* ConeView.swift */,
+				5AD6C1BB2758282F00BB5E7F /* LandingView.swift */,
 				5A8881E02757C40700F7A5EF /* Assets.xcassets */,
 				5A8881E22757C40700F7A5EF /* Preview Content */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD6C1BC2758282F00BB5E7F /* LandingView.swift in Sources */,
 				5A8881DF2757C40000F7A5EF /* CircleView.swift in Sources */,
 				5A8881DD2757C40000F7A5EF /* FiguresHelperApp.swift in Sources */,
 				5AD6C1BA2757CE6100BB5E7F /* ConeView.swift in Sources */,
