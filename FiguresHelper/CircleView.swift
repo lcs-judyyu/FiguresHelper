@@ -45,7 +45,8 @@ struct CircleView: View {
                 
                 // syntax of $- use this property (radius) and bind it to this control
                 Slider(value: $radius,
-                       in: 0.0...100.0,
+                       in: 0.0...50.0,
+                       step: 0.5,
                        label: {
                     Text("Radius")
                 },
@@ -53,7 +54,7 @@ struct CircleView: View {
                     Text("0.0")
                 },
                        maximumValueLabel: {
-                    Text("100.0")
+                    Text("50.0")
                 })
 
             }
