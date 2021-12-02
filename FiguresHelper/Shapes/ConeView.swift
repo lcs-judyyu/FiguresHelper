@@ -10,11 +10,11 @@ import SwiftUI
 struct ConeView: View {
     
     //MARK: Stored Properties
-    @State var radius: Double = 10.0
+    @State var radius: Double = 7.0
     
-    @State var slantHeight: Double = 10.0
+    @State var slantHeight: Double = 25.0
     
-    @State var height: Double = 10.0
+    @State var height: Double = 24.0
     
     //MARK: Computed Properties
 //    var realSlantHeight: Double {
