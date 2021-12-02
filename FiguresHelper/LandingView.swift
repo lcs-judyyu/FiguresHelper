@@ -9,46 +9,55 @@ import SwiftUI
 
 struct LandingView: View {
     var body: some View {
-        VStack(alignment: .leading) {
-            Section(header: Text("2D shapes"))  {
-                List {
+        VStack(alignment: .leading, spacing: 20) {
+            
+            List {
+                Section(header: Text("2D Shapes"))  {
+                    
                     NavigationLink(destination: {
                         
                         CircleView()
                         
                     }, label: {
-                        Text("Circle")
+                        Label(title: {
+                            Text("Circle")
+                        }, icon: {
+                            Image(systemName: "circle")
+                        })
                     })
                 }
-                .listStyle(.plain)
-            }
-            .headerProminence(.increased)
-            
-            Section(header: Text("3D shapes"))  {
-                List {
+                .headerProminence(.increased)
+                    
+                Section(header: Text("3D Shapes"))  {
                     NavigationLink(destination: {
                         
                         ConeView()
                         
                     }, label: {
-                        Text("Cone")
+                        Label(title: {
+                            Text("Cone")
+                        }, icon: {
+                            Image(systemName: "cone")
+                        })
                     })
                 }
-                .listStyle(.plain)
+                .headerProminence(.increased)
             }
-            .headerProminence(.increased)
-            Spacer()
+            .listStyle(.plain)
+            
         }
         .padding(.horizontal, 20)
-        .padding()
+        .padding(.top, 10)
         .navigationTitle("Figures Helper")
+        
+        Spacer()
     }
 }
 
 struct LandingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-        LandingView()
+            LandingView()
         }
     }
 }
