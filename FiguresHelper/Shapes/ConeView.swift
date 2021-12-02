@@ -52,8 +52,7 @@ struct ConeView: View {
                         .bold()
                     
                     Group {
-                        
-                        // Show the selected radius value
+
                         HStack {
                             Spacer()
                             Text("\(radius)")
@@ -62,7 +61,6 @@ struct ConeView: View {
                             Spacer()
                         }
                         
-                        // syntax of $- use this property (radius) and bind it to this control
                         Slider(value: $radius,
                                in: 0.0...50.0,
                                step: 0.5,
@@ -84,7 +82,6 @@ struct ConeView: View {
                     
                     Group {
                         
-                        // Show the selected radius value
                         HStack {
                             Spacer()
                             Text("\(slantHeight)")
@@ -93,7 +90,6 @@ struct ConeView: View {
                             Spacer()
                         }
                         
-                        // syntax of $- use this property (radius) and bind it to this control
                         Slider(value: $slantHeight,
                                in: 0.0...50.0,
                                step: 0.5,
@@ -115,7 +111,6 @@ struct ConeView: View {
                     
                     Group {
                         
-                        // Show the selected radius value
                         HStack {
                             Spacer()
                             Text("\(height)")
@@ -123,8 +118,7 @@ struct ConeView: View {
                                 .bold()
                             Spacer()
                         }
-                        
-                        // syntax of $- use this property (radius) and bind it to this control
+
                         Slider(value: $height,
                                in: 0.0...50.0,
                                step: 0.5,
@@ -142,6 +136,7 @@ struct ConeView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 20) {
+                        
                     // Output
                     Text("Total Surface Area:")
                         .bold()

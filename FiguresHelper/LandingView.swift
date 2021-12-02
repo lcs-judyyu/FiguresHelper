@@ -25,6 +25,18 @@ struct LandingView: View {
                             Image(systemName: "circle")
                         })
                     })
+                    
+                    NavigationLink(destination: {
+                        
+                        TrapezoidView()
+                        
+                    }, label: {
+                        Label(title: {
+                            Text("Trapezoid")
+                        }, icon: {
+                            Image(systemName: "trapezoid.and.line.vertical")
+                        })
+                    })
                 }
                 .headerProminence(.increased)
                     

@@ -21,27 +21,13 @@ struct TrapezoidView: View {
     @State var sideD: Double = 24.0
     
     //MARK: Computed Properties
-//    var realSlantHeight: Double {
-//        return (radius * radius + height * height).squareRoot()
-//    }
-//    if slantHeight <= height {
-//        action = Text("This cone does not exist.")
-//    }
     
-    var lateralSurface: Double {
-        return Double.pi * radius * slantHeight
+    var perimeter: Double {
+        return sideA + sideB + sideC + sideD
     }
     
-    var baseArea: Double {
-        return Double.pi * radius * radius
-    }
-    
-    var totalSurfaceArea: Double {
-        return baseArea + lateralSurface
-    }
-    
-    var volume: Double {
-       return (baseArea * height) / 3
+    var area: Double {
+       return ((sideA + sideB) * height) / 2
     }
     
     
@@ -52,74 +38,14 @@ struct TrapezoidView: View {
             VStack(alignment: .leading, spacing: 25) {
                 
                 // Input
-                Text("Radius:")
-                    .bold()
-                
-                Group {
+                //height
+                VStack(alignment: .leading, spacing: 20) {
                     
-                    // Show the selected radius value
-                    HStack {
-                        Spacer()
-                        Text("\(radius)")
-                            .font(.title2)
-                            .bold()
-                        Spacer()
-                    }
-                    
-                    // syntax of $- use this property (radius) and bind it to this control
-                    Slider(value: $radius,
-                           in: 0.0...50.0,
-                           step: 0.5,
-                           label: {
-                        Text("Radius")
-                    },
-                           minimumValueLabel: {
-                        Text("0.0")
-                    },
-                           maximumValueLabel: {
-                        Text("50.0")
-                    })
-
-                }
-                
-
-                Text("Slant Height:")
-                    .bold()
-                
-                Group {
-                    
-                    // Show the selected radius value
-                    HStack {
-                        Spacer()
-                        Text("\(slantHeight)")
-                            .font(.title2)
-                            .bold()
-                        Spacer()
-                    }
-                    
-                    // syntax of $- use this property (radius) and bind it to this control
-                    Slider(value: $slantHeight,
-                           in: 0.0...50.0,
-                           step: 0.5,
-                           label: {
-                        Text("Slant Height")
-                    },
-                           minimumValueLabel: {
-                        Text("0.0")
-                    },
-                           maximumValueLabel: {
-                        Text("50.0")
-                    })
-
-                }
-                
-                
                 Text("Height:")
                     .bold()
                 
                 Group {
                     
-                    // Show the selected radius value
                     HStack {
                         Spacer()
                         Text("\(height)")
@@ -128,7 +54,6 @@ struct TrapezoidView: View {
                         Spacer()
                     }
                     
-                    // syntax of $- use this property (radius) and bind it to this control
                     Slider(value: $height,
                            in: 0.0...50.0,
                            step: 0.5,
@@ -141,35 +66,158 @@ struct TrapezoidView: View {
                            maximumValueLabel: {
                         Text("50.0")
                     })
-                    Divider()
 
+                }
+                
+                //side A
+                Text("Side a:")
+                    .bold()
+                
+                Group {
+                    
+                    HStack {
+                        Spacer()
+                        Text("\(sideA)")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
+                    }
+                    
+
+                    Slider(value: $sideA,
+                           in: 0.0...50.0,
+                           step: 0.5,
+                           label: {
+                        Text("Side a")
+                    },
+                           minimumValueLabel: {
+                        Text("0.0")
+                    },
+                           maximumValueLabel: {
+                        Text("50.0")
+                    })
+
+                }
+                
+                //side B
+                Text("Side b:")
+                    .bold()
+                
+                Group {
+                    
+                    HStack {
+                        Spacer()
+                        Text("\(sideB)")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
+                    }
+                    
+
+                    Slider(value: $sideB,
+                           in: 0.0...50.0,
+                           step: 0.5,
+                           label: {
+                        Text("Side b")
+                    },
+                           minimumValueLabel: {
+                        Text("0.0")
+                    },
+                           maximumValueLabel: {
+                        Text("50.0")
+                    })
+
+                }
+                
+                //side C
+                Text("Side c:")
+                    .bold()
+                
+                Group {
+                    
+                    HStack {
+                        Spacer()
+                        Text("\(sideC)")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
+                    }
+                    
+
+                    Slider(value: $sideC,
+                           in: 0.0...50.0,
+                           step: 0.5,
+                           label: {
+                        Text("Side c")
+                    },
+                           minimumValueLabel: {
+                        Text("0.0")
+                    },
+                           maximumValueLabel: {
+                        Text("50.0")
+                    })
+
+                }
+                
+                //side D
+                Text("Side d:")
+                    .bold()
+                
+                Group {
+                    
+                    HStack {
+                        Spacer()
+                        Text("\(sideD)")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
+                    }
+                    
+
+                    Slider(value: $sideD,
+                           in: 0.0...50.0,
+                           step: 0.5,
+                           label: {
+                        Text("Side d")
+                    },
+                           minimumValueLabel: {
+                        Text("0.0")
+                    },
+                           maximumValueLabel: {
+                        Text("50.0")
+                    })
+
+                }
+                    
                 }
                 
                 VStack(alignment: .leading, spacing: 20) {
                 // Output
-                Text("Total Surface Area:")
+                Text("Perimeter:")
                     .bold()
                 
-                Text("\(totalSurfaceArea) square units")
+                Text("\(perimeter) units")
                     .font(.title2)
                 
                 Divider()
                 
-                Text("Volume:")
+                Text("Area:")
                     .bold()
                                 
-                Text("\(volume) cube units")
+                Text("\(area) square units")
                     .font(.title2)
                 }
             }
             .padding()
-            .navigationTitle("Cone")
+            .navigationTitle("Trapezoid")
         }
     }
 }
 
 struct TrapezoidView_Previews: PreviewProvider {
     static var previews: some View {
-        TrapezoidView()
+        NavigationView {
+            TrapezoidView()
+        }
     }
 }
