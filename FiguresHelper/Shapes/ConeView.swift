@@ -91,13 +91,13 @@ struct ConeView: View {
                         }
                         
                         Slider(value: $slantHeight,
-                               in: 0.0...50.0,
+                               in: height...50.0,
                                step: 0.5,
                                label: {
                             Text("Slant Height")
                         },
                                minimumValueLabel: {
-                            Text("0.0")
+                            Text("\(height)")
                         },
                                maximumValueLabel: {
                             Text("50.0")
@@ -120,7 +120,7 @@ struct ConeView: View {
                         }
 
                         Slider(value: $height,
-                               in: 0.0...50.0,
+                               in: 0.0...slantHeight,
                                step: 0.5,
                                label: {
                             Text("Height")
@@ -129,7 +129,7 @@ struct ConeView: View {
                             Text("0.0")
                         },
                                maximumValueLabel: {
-                            Text("50.0")
+                            Text("\(slantHeight)")
                         })
                         Divider()
 

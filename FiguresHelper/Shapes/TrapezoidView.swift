@@ -30,6 +30,14 @@ struct TrapezoidView: View {
        return ((sideA + sideB) * height) / 2
     }
     
+//    func smallerSide() -> Double {
+//        return
+//        if sideC <= sideD {
+//            return sideC
+//        } else if sideD < sideC {
+//            return sideD
+//        }
+//    }
     
     var body: some View {
         
