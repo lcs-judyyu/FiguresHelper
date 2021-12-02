@@ -10,15 +10,15 @@ import SwiftUI
 struct TrapezoidView: View {
     
     //MARK: Stored Properties
-    @State var height: Double = 7.0
+    @State var height: Double = 4.0
     
-    @State var sideA: Double = 25.0
+    @State var sideA: Double = 6.0
     
-    @State var sideB: Double = 24.0
+    @State var sideB: Double = 12.0
     
-    @State var sideC: Double = 25.0
+    @State var sideC: Double = 5.0
     
-    @State var sideD: Double = 24.0
+    @State var sideD: Double = 5.0
     
     //MARK: Computed Properties
     
@@ -35,7 +35,11 @@ struct TrapezoidView: View {
         
         ScrollView {
             
-            VStack(alignment: .leading, spacing: 25) {
+            VStack(alignment: .leading, spacing: 20) {
+                
+                Image("Trapezoid")
+                    .resizable()
+                    .scaledToFit()
                 
                 // Input
                 //height
