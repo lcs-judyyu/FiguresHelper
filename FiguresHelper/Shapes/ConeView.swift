@@ -84,7 +84,7 @@ struct ConeView: View {
                         
                         HStack {
                             Spacer()
-                            Text("\(slantHeight)")
+                            Text("\(String(format: "%.2f", slantHeight))")
                                 .font(.title2)
                                 .bold()
                             Spacer()
@@ -97,7 +97,7 @@ struct ConeView: View {
                             Text("Slant Height")
                         },
                                minimumValueLabel: {
-                            Text("\(height)")
+                            Text("\(String(format: "%.2f", height))")
                         },
                                maximumValueLabel: {
                             Text("50.0")
@@ -113,7 +113,7 @@ struct ConeView: View {
                         
                         HStack {
                             Spacer()
-                            Text("\(height)")
+                            Text("\(String(format: "%.2f", height))")
                                 .font(.title2)
                                 .bold()
                             Spacer()
@@ -129,7 +129,7 @@ struct ConeView: View {
                             Text("0.0")
                         },
                                maximumValueLabel: {
-                            Text("\(slantHeight)")
+                            Text("\(String(format: "%.2f", slantHeight))")
                         })
                         Divider()
 
