@@ -30,19 +30,13 @@ struct TrapezoidView: View {
         return ((sideA + sideB) * height) / 2
     }
     
-    //    func smallerSide() -> Double {
-    //        return
-    //        if sideC <= sideD {
-    //            return sideC
-    //        } else if sideD < sideC {
-    //            return sideD
-    //        }
-    //    }
-    
-//    if sideC <= sideD {
-//        return sideC
-//    } else if sideD < sideC {
-//        return sideD
+    var smallerSide: Double {
+            if sideC <= sideD {
+                return sideC
+            } else {
+                return sideD
+            }
+        }
         
         var body: some View {
             
@@ -72,7 +66,7 @@ struct TrapezoidView: View {
                             }
                             
                             Slider(value: $height,
-                                   in: 0.0...50.0,
+                                   in: 0.0...smallerSide,
                                    step: 0.5,
                                    label: {
                                 Text("Height")
@@ -81,7 +75,7 @@ struct TrapezoidView: View {
                                 Text("0.0")
                             },
                                    maximumValueLabel: {
-                                Text("50.0")
+                                Text("\(String(format: "%.2f", smallerSide))")
                             })
                             
                         }
@@ -162,13 +156,13 @@ struct TrapezoidView: View {
                             
                             
                             Slider(value: $sideC,
-                                   in: 0.0...50.0,
+                                   in: height...50.0,
                                    step: 0.5,
                                    label: {
                                 Text("Side c")
                             },
                                    minimumValueLabel: {
-                                Text("0.0")
+                                Text("\(String(format: "%.2f", height))")
                             },
                                    maximumValueLabel: {
                                 Text("50.0")
@@ -192,13 +186,13 @@ struct TrapezoidView: View {
                             
                             
                             Slider(value: $sideD,
-                                   in: 0.0...50.0,
+                                   in: height...50.0,
                                    step: 0.5,
                                    label: {
                                 Text("Side d")
                             },
                                    minimumValueLabel: {
-                                Text("0.0")
+                                Text("\(String(format: "%.2f", height))")
                             },
                                    maximumValueLabel: {
                                 Text("50.0")
