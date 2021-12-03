@@ -55,7 +55,7 @@ struct ConeView: View {
 
                         HStack {
                             Spacer()
-                            Text("\(radius)")
+                            Text("\(String(format: "%.2f", radius))")
                                 .font(.title2)
                                 .bold()
                             Spacer()
