@@ -17,12 +17,12 @@ struct ConeView: View {
     @State var height: Double = 24.0
     
     //MARK: Computed Properties
-//    var realSlantHeight: Double {
-//        return (radius * radius + height * height).squareRoot()
-//    }
-//    if slantHeight <= height {
-//        action = Text("This cone does not exist.")
-//    }
+    //    var realSlantHeight: Double {
+    //        return (radius * radius + height * height).squareRoot()
+    //    }
+    //    if slantHeight <= height {
+    //        action = Text("This cone does not exist.")
+    //    }
     
     var lateralSurface: Double {
         return Double.pi * radius * slantHeight
@@ -37,106 +37,116 @@ struct ConeView: View {
     }
     
     var volume: Double {
-       return (baseArea * height) / 3
+        return (baseArea * height) / 3
     }
     
     
-        var body: some View {
+    var body: some View {
+        
+        //custom binding
+        let radiusBinding = Binding(get: {
+            return self.radius
+        }, set: { newRadius in
+            self.radius = newRadius
+            self.slantHeight = (radius * radius + height * height).squareRoot()
+            self.slantHeight = (slantHeight * slantHeight - radius * radius).squareRoot()
+        })
+        
+        
+        ScrollView {
             
-            ScrollView {
+            VStack(alignment: .leading, spacing: 25) {
                 
-                VStack(alignment: .leading, spacing: 25) {
+                // Input
+                Text("Radius:")
+                    .bold()
+                
+                Group {
                     
-                    // Input
-                    Text("Radius:")
-                        .bold()
-                    
-                    Group {
-
-                        HStack {
-                            Spacer()
-                            Text("\(String(format: "%.2f", radius))")
-                                .font(.title2)
-                                .bold()
-                            Spacer()
-                        }
-                        
-                        Slider(value: $radius,
-                               in: 0.0...50.0,
-                               step: 0.5,
-                               label: {
-                            Text("Radius")
-                        },
-                               minimumValueLabel: {
-                            Text("0.0")
-                        },
-                               maximumValueLabel: {
-                            Text("50.0")
-                        })
-
+                    HStack {
+                        Spacer()
+                        Text("\(String(format: "%.2f", radius))")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
                     }
                     
-
-                    Text("Slant Height:")
-                        .bold()
+                    Slider(value: radiusBinding,
+                           in: 0.0...50.0,
+                           step: 0.5,
+                           label: {
+                        Text("Radius")
+                    },
+                           minimumValueLabel: {
+                        Text("0.0")
+                    },
+                           maximumValueLabel: {
+                        Text("50.0")
+                    })
                     
-                    Group {
-                        
-                        HStack {
-                            Spacer()
-                            Text("\(String(format: "%.2f", slantHeight))")
-                                .font(.title2)
-                                .bold()
-                            Spacer()
-                        }
-                        
-                        Slider(value: $slantHeight,
-                               in: height...50.0,
-                               step: 0.5,
-                               label: {
-                            Text("Slant Height")
-                        },
-                               minimumValueLabel: {
-                            Text("\(String(format: "%.2f", height))")
-                        },
-                               maximumValueLabel: {
-                            Text("50.0")
-                        })
-
+                }
+                
+                
+                Text("Slant Height:")
+                    .bold()
+                
+                Group {
+                    
+                    HStack {
+                        Spacer()
+                        Text("\(String(format: "%.2f", slantHeight))")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
                     }
                     
+                    Slider(value: $slantHeight,
+                           in: height...50.0,
+                           step: 0.5,
+                           label: {
+                        Text("Slant Height")
+                    },
+                           minimumValueLabel: {
+                        Text("\(String(format: "%.2f", height))")
+                    },
+                           maximumValueLabel: {
+                        Text("50.0")
+                    })
                     
-                    Text("Height:")
-                        .bold()
+                }
+                
+                
+                Text("Height:")
+                    .bold()
+                
+                Group {
                     
-                    Group {
-                        
-                        HStack {
-                            Spacer()
-                            Text("\(String(format: "%.2f", height))")
-                                .font(.title2)
-                                .bold()
-                            Spacer()
-                        }
-
-                        Slider(value: $height,
-                               in: 0.0...slantHeight,
-                               step: 0.5,
-                               label: {
-                            Text("Height")
-                        },
-                               minimumValueLabel: {
-                            Text("0.0")
-                        },
-                               maximumValueLabel: {
-                            Text("\(String(format: "%.2f", slantHeight))")
-                        })
-                        Divider()
-
+                    HStack {
+                        Spacer()
+                        Text("\(String(format: "%.2f", height))")
+                            .font(.title2)
+                            .bold()
+                        Spacer()
                     }
                     
-                    VStack(alignment: .leading, spacing: 20) {
-                        
+                    Slider(value: $height,
+                           in: 0.0...slantHeight,
+                           step: 0.5,
+                           label: {
+                        Text("Height")
+                    },
+                           minimumValueLabel: {
+                        Text("0.0")
+                    },
+                           maximumValueLabel: {
+                        Text("\(String(format: "%.2f", slantHeight))")
+                    })
+                    Divider()
+                    
+                }
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    
                     // Output
                     Text("Total Surface Area:")
                         .bold()
@@ -148,15 +158,15 @@ struct ConeView: View {
                     
                     Text("Volume:")
                         .bold()
-                                    
+                    
                     Text("\(volume) cube units")
                         .font(.title2)
-                    }
                 }
-                .padding()
-                .navigationTitle("Cone")
             }
+            .padding()
+            .navigationTitle("Cone")
         }
+    }
 }
 
 struct ConeView_Previews: PreviewProvider {
