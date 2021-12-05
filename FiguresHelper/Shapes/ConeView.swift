@@ -49,9 +49,24 @@ struct ConeView: View {
         }, set: { newRadius in
             self.radius = newRadius
             self.slantHeight = (radius * radius + height * height).squareRoot()
-            self.slantHeight = (slantHeight * slantHeight - radius * radius).squareRoot()
+            self.height = (slantHeight * slantHeight - radius * radius).squareRoot()
         })
         
+        let heightBinding = Binding(get: {
+            return self.height
+        }, set: { newHeight in
+            self.height = newHeight
+            self.slantHeight = (radius * radius + height * height).squareRoot()
+            self.radius = (slantHeight * slantHeight - height * height).squareRoot()
+        })
+        
+        let slantHeightBinding = Binding(get: {
+            return self.slantHeight
+        }, set: { newSlantHeight in
+            self.slantHeight = newSlantHeight
+            self.height = (slantHeight * slantHeight - radius * radius).squareRoot()
+            self.radius = (slantHeight * slantHeight - height * height).squareRoot()
+        })
         
         ScrollView {
             
@@ -100,7 +115,7 @@ struct ConeView: View {
                         Spacer()
                     }
                     
-                    Slider(value: $slantHeight,
+                    Slider(value: slantHeightBinding,
                            in: height...50.0,
                            step: 0.5,
                            label: {
@@ -129,7 +144,7 @@ struct ConeView: View {
                         Spacer()
                     }
                     
-                    Slider(value: $height,
+                    Slider(value: heightBinding,
                            in: 0.0...slantHeight,
                            step: 0.5,
                            label: {
